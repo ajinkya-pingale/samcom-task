@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonService } from './service/common.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'samcomTask';
+
+  constructor(private commonService: CommonService){
+    // if(localStorage.getItem('token')){
+    //   this.commonService.navigateTo('/app')
+    // }else{
+    //   this.commonService.navigateTo('')
+    // }
+  }
+
 }

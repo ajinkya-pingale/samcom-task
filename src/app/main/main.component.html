@@ -1,0 +1,18 @@
+<div>
+  <span>Welcome to the home page {{userDetails?.['first_name']}} {{userDetails?.['last_name']}}</span>
+  <span (click)="logoutUser()" >Logout</span>
+  <br>
+  <span>Book your ticket</span>
+</div>
+
+<div style="display: flex;" >
+  <div *ngFor="let eachTicket of ticketData" >
+    <div (click)="bookSeat(eachTicket)" style="background-color: rgb(204, 201, 201); height: 100px; width: 100px; margin: 20px; text-align: center; vertical-align: middle; padding-top: 40px; border-radius: 5px; cursor: pointer; ">
+      <span >Ticket No. {{eachTicket['ticketNo']}}</span><br>
+      <span>Price: {{eachTicket['price']}}</span>
+    </div>
+  </div>
+</div>
+<div>
+  <button (click)="bookTickets()" >Submit</button>
+</div>

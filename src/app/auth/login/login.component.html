@@ -1,0 +1,61 @@
+<div>
+  <span style="background-color: rgb(148, 219, 148);" *ngIf="successMsg" >{{successMsg}}</span>
+</div>
+<div>
+  <span style="background-color: rgb(219, 104, 121);" *ngIf="errorMsg" >{{errorMsg}}</span>
+</div>
+<div *ngIf="showLoginForm" >
+  <h4>Sign In</h4>
+  <form [formGroup]="loginForm">
+    <div>
+      <label>Email ID</label>
+      <input type="email" formControlName="emailId" [disabled]="true">
+      <span *ngIf="errorObj['emailId']"  style="color: red; font-size: small; " >{{errorObj['emailId']}}</span>
+    </div>
+    <div>
+      <label>Password</label>
+      <input type="password" formControlName="password">
+      <span *ngIf="errorObj['password']" style="color: red; font-size: small; " >{{errorObj['password']}}</span>
+    </div>
+    <button type="submit" (click)="onLogin()" >Login</button>
+    <span style="color: blue; text-decoration: underline; cursor: pointer; " (click)="showLoginForm = false" >New User ?</span>
+  </form>
+</div>
+
+<div *ngIf="!showLoginForm" >
+  <h4>Sign Up</h4>
+  <form [formGroup]="registrationForm">
+    <div>
+      <label>First Name</label>
+      <input type="text" formControlName="first_name" >
+      <span *ngIf="errorObj['emailId']"  style="color: red; font-size: small; " ></span>
+    </div>
+    <div>
+      <label>Last Name</label>
+      <input type="text" formControlName="last_name" >
+      <span *ngIf="errorObj['emailId']"  style="color: red; font-size: small; " ></span>
+    </div>
+    <div>
+      <label>Phone Number</label>
+      <input type="text" formControlName="phone_no" >
+      <span *ngIf="errorObj['phone_no']"  style="color: red; font-size: small; " >{{errorObj['phone_no']}}</span>
+    </div>
+    <div>
+      <label>Email ID</label>
+      <input type="email" formControlName="email" [disabled]="true">
+      <span *ngIf="errorObj['email']"  style="color: red; font-size: small; " >{{errorObj['email']}}</span>
+    </div>
+    <div>
+      <label>Password</label>
+      <input type="password" formControlName="password">
+      <span *ngIf="errorObj['password']" style="color: red; font-size: small; " >{{errorObj['password']}}</span>
+    </div>
+    <div>
+      <label>Confirm Password</label>
+      <input type="password" formControlName="conf_pass">
+      <span *ngIf="errorObj['conf_pass']" style="color: red; font-size: small; " >{{errorObj['conf_pass']}}</span>
+    </div>
+    <button type="submit" (click)="signUp()" >Register</button>
+    <span style="color: blue; text-decoration: underline; cursor: pointer; " (click)="showLoginForm = true" >Go To Login</span>
+  </form>
+</div>
